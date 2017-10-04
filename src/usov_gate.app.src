@@ -1,14 +1,15 @@
 {application, usov_gate,
- [{description, "An OTP application"},
+ [{description, "GSM PLC Link Server"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { usov_gate_app, []}},
+  {mod, { usov_gate_app, [5100,5000]}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    gproc
    ]},
   {env,[]},
-  {modules, []},
+  {modules, [crc16,usg_comp,usg_plc,usov_gate_app,usov_gate_sup]},
 
   {maintainers, []},
   {licenses, ["Apache 2.0"]},

@@ -14,8 +14,8 @@
 %% API
 %%====================================================================
 
-start(_StartType, _StartArgs) ->
-    usov_gate_sup:start_link().
+start(_StartType, StartArgs) ->
+    usov_gate_sup:start_link(StartArgs).
 
 %%--------------------------------------------------------------------
 stop(_State) ->
