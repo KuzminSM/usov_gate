@@ -7,3 +7,8 @@ Build
 -----
 
     $ rebar3 compile
+
+Make release package
+-----
+
+    $ rebar3 release

@@ -22,12 +22,12 @@ terminate(_Reason, {server, Sock}) ->
 handle_cast(stop, {server, Sock}) ->
   {stop, normal, {server, Sock}}.
 
-handle_info({udp, Socket, Host, Port, Bin}, {server, Sock}) ->
+handle_info({udp, _Socket, Host, Port, Bin}, {server, Sock}) ->
   inet:setopts(Sock, [{active, once}]),
   process(Host, Port, Bin),
   {noreply, {server, Sock}};
 
-handle_info(Msg, {server, Sock}) ->
+handle_info(_Msg, {server, Sock}) ->
   {noreply, {server, Sock}}.
   
 send(Host, Port, Bin) ->
